@@ -1,8 +1,8 @@
-import React from 'react'
-import Button from './components/Button';
+import React, { useEffect } from "react";
+import Button from "./components/Button";
 
 function createInitialState() {
-  console.log('createInitialState: ')
+  console.log("createInitialState: ");
   return 10;
 }
 
@@ -17,9 +17,9 @@ function StateHook() {
     // setAge(age + 3);
 
     // updater function
-    setAge(prevState => prevState  + 1);
-    setAge(prevState => prevState  + 1);
-    setAge(prevState => prevState  + 1);
+    setAge((prevState) => prevState + 1);
+    setAge((prevState) => prevState + 1);
+    setAge((prevState) => prevState + 1);
   }
 
   const handleAddTodo = () => {
@@ -34,16 +34,16 @@ function StateHook() {
     // Expecting result ["_original", "_truong"]
     // const newTodo = todo.map((todoValue) => `_${todoValue}`);
     // setTodo(newTodo);
-    setTodo(prevState => prevState.map((todoValue) => `_${todoValue}`))
+    setTodo((prevState) => prevState.map((todoValue) => `_${todoValue}`));
   };
 
   return (
     <div>
       <h1>StateHook</h1>
       <br />
-      Age: {age}<br />
+      Age: {age}
+      <br />
       <Button text="Update Age" onClick={updateAge} />
-
       <h3>Demo updater function</h3>
       <input ref={inputRef} placeholder="your todo..." />
       <Button text="Add todo" onClick={handleAddTodo} />
@@ -53,7 +53,7 @@ function StateHook() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default StateHook
+export default StateHook;
