@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import GetLanguages from "@settings/config";
+import { GetLanguages } from "../settings/config";
 
 const TodosList = () => {
-  const [langs, setLangs] = React.useState();
+  const [langs, setLangs] = React.useState([]);
   useEffect(() => {
-    let getLangs = GetLanguages();
-    setLangs(getLangs);
-    console.log("first run after mount");
+    let getDataLangs = GetLanguages();
+    setLangs(getDataLangs);
   }, []);
 
   return (

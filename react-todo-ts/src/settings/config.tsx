@@ -1,12 +1,12 @@
-type Config = {};
 type ConfigLanguage = {
   id: string;
   name: string;
   code: string;
+  icon?: string;
 };
-export const GetLanguages = (): Array<ConfigLanguage> => {
+export function GetLanguages(): Array<ConfigLanguage> {
   return Settings.languages.languageSupport;
-};
+}
 
 const Settings = {
   languages: {
