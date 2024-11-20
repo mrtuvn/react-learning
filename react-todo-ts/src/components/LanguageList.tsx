@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { GetLanguages } from "../settings/config";
 
-const TodosList = () => {
+const LanguageList = () => {
   const [langs, setLangs] = React.useState([]);
+
   useEffect(() => {
     let getDataLangs = GetLanguages();
     setLangs(getDataLangs);
@@ -20,4 +21,4 @@ const TodosList = () => {
   );
 };
 
-export default TodosList;
+export default LanguageList;

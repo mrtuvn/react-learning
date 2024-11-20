@@ -4,3 +4,16 @@
   padding: 2rem;
   text-align: center;
 }
+
+@media (prefers-color-scheme: dark) {
+  body .dark {
+    background: #000;
+    padding: 20px;
+  }
+
+  button {
+    background: white;
+    color: black;
+    outline: 1px solid #ccc;
+  }
+}
