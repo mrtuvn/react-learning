@@ -13,6 +13,8 @@ import StateHook from "./StateHook";
 import EffectHook from "./EffectHook";
 import Button from "./components/Button";
 
+import TicTacToe from "./components/TicTacToe/index";
+
 function App() {
   const [unmounted, setUnmounted] = React.useState(true);
 
@@ -57,6 +59,10 @@ function App() {
         text="Test umounted"
         onClick={() => setUnmounted((prevStage) => !prevStage)}
       />
+
+      <br />
+
+      <TicTacToe />
 
       <br />
       <br />
