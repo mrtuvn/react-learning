@@ -1,27 +1,31 @@
-import React from "react";
+import Todo from "@/components/Todo/Todo";
+import { useAppContext, useTodosDispatch } from "@/contexts/AppContext";
+import { Button } from "../ui/button";
 
-const TodoLists = ({ todos }) => {
+const TodoLists = () => {
+  const appContext = useAppContext();
+  const dispatch = useTodosDispatch();
+  const todos = appContext.todos;
+
   return (
-    <ul className="list-none flex flex-col gap-2">
-      {todos.map((todo) => {
-        return (
-          <li>
-            <div className="items-top flex space-x-2">
-              <div className="flex flex-row gap-1.5 leading-none w-full p-3">
-                <label
-                  htmlFor={todo.id}
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  {todo.title}
-                </label>
+    <>
+      <ul className="list-none flex flex-col gap-2">
+        {todos.map((todo) => {
+          return <Todo key={todo.id} todo={todo} />;
+        })}
+      </ul>
 
-                <button className="ml-auto">remove</button>
-              </div>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+      <Button
+        className="text-right"
+        onClick={(e) =>
+          dispatch({
+            type: "TODO_CLEAR",
+          })
+        }
+      >
+        Delete All
+      </Button>
+    </>
   );
 };
 
