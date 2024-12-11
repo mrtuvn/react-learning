@@ -1,5 +1,5 @@
 {
-  "name": "react-fundamental",
+  "name": "react-fundamentals",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,14 +12,14 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.3",
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.2",

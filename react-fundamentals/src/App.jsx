@@ -14,13 +14,14 @@ import EffectHook from "./EffectHook";
 import Button from "./components/Button";
 
 import TicTacToe from "./components/TicTacToe/index";
+import ElectricStore from "./components/ElectricStore/ElectricStore";
 
 function App() {
   const [unmounted, setUnmounted] = React.useState(true);
 
   return (
     <>
-      <ReactJSX />
+      {/* <ReactJSX />
 
       <br />
 
@@ -51,18 +52,20 @@ function App() {
       <GenerateBox />
 
       <br />
-      <StateHook />
+      <StateHook /> */}
 
       <br />
-      {unmounted && <EffectHook />}
+      {/* {unmounted && <EffectHook />}
       <Button
         text="Test umounted"
         onClick={() => setUnmounted((prevStage) => !prevStage)}
-      />
+      /> */}
 
       <br />
 
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+
+      <ElectricStore />
 
       <br />
       <br />
