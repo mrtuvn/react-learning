@@ -8,7 +8,7 @@ const ElectricStore = () => {
     <div>
       <ProductSearch />
       <ProductLists />
-      <ProductDetail />
+      <ProductDetail id={2} />
     </div>
   );
 };

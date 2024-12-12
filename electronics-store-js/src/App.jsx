@@ -24,6 +24,7 @@ http://localhost:5173/login -> login/register (auth)
 */
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ProductDetails from "./components/ProductDetails";
 const queryClient = new QueryClient();
 
 function App() {
@@ -38,35 +39,8 @@ function App() {
           <ProductList />
 
           <br />
-          <h3 className="font-bold">Product detail</h3>
 
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  ID
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Title
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Brand
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-[#0060FD]"
-                >
-                  N/A
-                </th>
-                <td className="px-6 py-4">N/A</td>
-                <td className="px-6 py-4">N/A</td>
-              </tr>
-            </tbody>
-          </table>
+          <ProductDetails />
         </div>
       </AppRootContext>
     </QueryClientProvider>
