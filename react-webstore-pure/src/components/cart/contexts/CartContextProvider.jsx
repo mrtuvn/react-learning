@@ -3,16 +3,32 @@ import CartReducer, { CART_ACTIONS } from "./CartReducer";
 
 export const CartContext = createContext();
 
+const initState = {
+  items: [],
+};
+
 const CartContextProvider = ({ children }) => {
-  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  const [cart, dispatch] = useReducer(CartReducer, storedCart);
+  const [cart, dispatch] = useReducer(CartReducer, initState);
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (storedCart.length > 0) {
+      storedCart.forEach((item) => {
+        dispatch({ type: CART_ACTIONS.ADD_ITEM, item });
+      });
+    }
+
+    if (cart.items.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart.items));
+    }
+  }, [cart.items]);
 
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0,
+    );
   };
 
   const value = {

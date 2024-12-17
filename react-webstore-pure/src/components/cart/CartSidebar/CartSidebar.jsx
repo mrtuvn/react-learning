@@ -1,24 +1,15 @@
-import React from "react";
-import CartItem from "./CartItem";
+import React, { useState } from "react";
 import CartEmpty from "./CartEmpty";
 import { useCart } from "../contexts/CartContextProvider";
+import CartItem from "./CartItem";
 
 const CartSidebar = () => {
-  const { cart, dispatch, actions, calculateTotal } = useCart();
-
-  const handleRemove = (id) => {
-    dispatch({ type: actions.REMOVE_ITEM, payload: id });
-  };
-
-  const handleQuantityChange = (id, quantity) => {
-    if (quantity < 1) return;
-    dispatch({ type: actions.UPDATE_QUANTITY, payload: { id, quantity } });
-  };
+  const { cart, calculateTotal } = useCart();
 
   return (
     <div className="card">
-      {cart.length === 0 && <CartEmpty />}
-      {cart.length > 0 && (
+      {cart.items.length === 0 && <CartEmpty />}
+      {cart.items.length > 0 && (
         <>
           <div className="cardTop">
             <img
@@ -34,11 +25,8 @@ const CartSidebar = () => {
           </div>
 
           <div className="cardBody">
-            {cart.map((item) => (
-              <CartItem
-                key={item.id}
-                ItemProps={{ item, handleRemove, handleQuantityChange }}
-              />
+            {cart?.items?.map((item) => (
+              <CartItem key={item.id} item={item} />
             ))}
           </div>
         </>

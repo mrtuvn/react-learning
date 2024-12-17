@@ -5,7 +5,11 @@ const ProductItem = ({ product }) => {
   const { dispatch, actions } = useCart();
 
   const addToCart = () => {
-    dispatch({ type: actions.ADD_ITEM, payload: { ...product, quantity: 1 } });
+    const item = {
+      ...product,
+      quantity: 1,
+    };
+    dispatch({ type: actions.ADD_ITEM, item });
   };
 
   return (
