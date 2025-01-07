@@ -58,7 +58,6 @@ export default function HeroBannerCard({
             <p
               className={cn("text-[12px] font-bold uppercase leading-7", {
                 "text-brand-light": variant === "default",
-                "text-brand-light": variant === "slider",
                 "": variant === "antique",
               })}
             >

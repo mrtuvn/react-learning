@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { BsChevronDown } from "react-icons/bs";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 interface Props {
   className?: string;
@@ -14,18 +14,18 @@ const links = [
 export const MenuTopMyAccount: React.FC<Props> = ({ className }) => {
   return (
     <Menu>
-      <MenuButton className="flex gap-1 justify-center items-center">
+      <MenuButton className="flex items-center justify-center gap-1">
         My account
-        <BsChevronDown className="transition duration-300 ease-in-out transform" />
+        <BsChevronDown className="transform transition duration-300 ease-in-out" />
       </MenuButton>
       <MenuItems
         anchor={{ to: "bottom start", gap: "4px" }}
-        className="border shadow-lg bg-white rounded-md text-sm min-w-[180px] py-3 px-4 z-50"
+        className="z-50 min-w-[180px] rounded-md border bg-white px-4 py-3 text-sm shadow-lg"
       >
         {links.map((link) => (
           <MenuItem key={link.href}>
             <Link
-              className="block  truncate py-1 leading-6 hover:text-blue-500"
+              className="block truncate py-1 leading-6 hover:text-blue-500"
               to={link.href}
             >
               {link.label}
