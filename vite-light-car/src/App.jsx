@@ -1,11 +1,7 @@
-import BaseLayout from "./layouts/BaseLayout";
+import { AppRouter } from "./routes";
 
 function App() {
-  return (
-    <BaseLayout>
-      <div className="container mx-auto"></div>
-    </BaseLayout>
-  );
+  return <AppRouter />;
 }
 
 export default App;

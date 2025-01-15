@@ -4,11 +4,11 @@ import Footer from "@components/common/Footer";
 
 const BaseLayout = ({ children }) => {
   return (
-    <div>
+    <>
       <Header />
-      <main className="min-h-svh">{children}</main>
+      <main className="relative min-h-svh">{children}</main>
       <Footer />
-    </div>
+    </>
   );
 };
 
