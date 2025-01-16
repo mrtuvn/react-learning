@@ -10,6 +10,7 @@ import BaseLayout from "../layouts/BaseLayout";
 // Pages
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
+import LearningPage from "@/pages/LearningPage";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "react",
+        element: <LearningPage />,
       },
     ],
   },

@@ -1,5 +1,5 @@
 import React from "react";
-import viteLogo from "/vite.svg";
+import mainLogo from "/assets/react.svg";
 import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
     <header className="flex gap-2">
       <div className="container mx-auto flex items-center justify-between py-4">
         <a href="#" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={mainLogo} className="logo" width={50} alt="Vite logo" />
         </a>
         <div className="inline-flex items-center gap-4">
           <p>
