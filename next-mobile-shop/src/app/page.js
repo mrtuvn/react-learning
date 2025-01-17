@@ -1,12 +1,18 @@
-import Image from "next/image";
+import GridCards from "@/components/cards/GridCards";
+import HomeBanner from "@/components/hero/HomeBanner";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <p>SLIDER</p>
-        <p>PRODUCT LISTS</p>
-      </main>
+    <div className="py-2 pb-20 gap-16">
+      <div className="w-full mb-10">
+        <HomeBanner />
+      </div>
+      <div className="container mx-auto sm:items-start">
+        <h2 className="text-center font-black text-3xl mb-5">PRODUCT LISTS</h2>
+        <GridCards />
+
+        <p>BLOGs</p>
+      </div>
     </div>
   );
 }
