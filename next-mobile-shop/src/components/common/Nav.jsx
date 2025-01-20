@@ -6,10 +6,24 @@ const Nav = () => {
     <div className="container mx-auto">
       <nav className="py-4">
         <ul className="nav inline-flex gap-4 text-white">
-          <Link href={"/categories"}>Categories</Link>
-          <Link href={"/blogs"}>Blogs</Link>
-          <Link href={"/learning"}>Learning</Link>
-          <Link href={"/contact"}>Liên hệ</Link>
+          <Link className="level0 hover:underline" href={"/categories"}>
+            Categories Brands
+            <div className="level1 sub-content hidden">
+              <ul>
+                <li>Apple</li>
+                <li>Samsung</li>
+              </ul>
+            </div>
+          </Link>
+          <Link className="level0 hover:underline" href={"/blogs"}>
+            Blogs
+          </Link>
+          <Link className="level0 hover:underline" href={"/learning"}>
+            Learning ReactJS
+          </Link>
+          <Link className="level0 hover:underline" href={"/contact"}>
+            Liên hệ
+          </Link>
         </ul>
       </nav>
     </div>

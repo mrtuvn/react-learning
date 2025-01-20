@@ -8,10 +8,17 @@ export default function Home() {
         <HomeBanner />
       </div>
       <div className="container mx-auto sm:items-start">
-        <h2 className="text-center font-black text-3xl mb-5">PRODUCT LISTS</h2>
+        <h2 className="text-center uppercase font-black text-3xl mb-5">
+          -New PRODUCTS-
+        </h2>
+        <h2 className="text-center uppercase font-black text-3xl mb-5">
+          FEATURED PRODUCT LISTS
+        </h2>
         <GridCards />
 
-        <p>BLOGs</p>
+        <h2 className="text-center uppercase font-black text-3xl mb-5">
+          BLOGs
+        </h2>
       </div>
     </div>
   );
