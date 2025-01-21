@@ -25,19 +25,19 @@ const banners = [
 
 const breakpoints = {
   1480: {
-    slidesPerView: 8,
+    slidesPerView: 1,
     spaceBetween: 10,
   },
   1280: {
-    slidesPerView: 5,
+    slidesPerView: 1,
     spaceBetween: 10,
   },
   1024: {
-    slidesPerView: 5,
+    slidesPerView: 1,
     spaceBetween: 10,
   },
   768: {
-    slidesPerView: 4,
+    slidesPerView: 1,
     spaceBetween: 10,
   },
   600: {
@@ -52,7 +52,12 @@ const breakpoints = {
 
 const HomeBanner = () => {
   return (
-    <Carousel lang="en">
+    <Carousel
+      lang="en"
+      breakpoints={breakpoints}
+      navigation={true}
+      pagination={true}
+    >
       {banners.map((banner, index) => (
         <div className="swiper-slide" key={index}>
           <Image

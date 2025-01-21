@@ -1,7 +1,7 @@
 "use client";
 import "swiper/css";
-import "./swiper-carousel.css";
-import cn from "classnames";
+//import "./swiper-carousel.css";
+//import cn from "classnames";
 import { useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, Navigation, Autoplay, Pagination, Grid } from "./slider";
