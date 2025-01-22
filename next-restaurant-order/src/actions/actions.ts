@@ -23,6 +23,29 @@ export async function addQuestion(formData: FormData) {
   revalidatePath("/dashboard");
 }
 
+export async function addExpense(formData: FormData) {
+  const { isAuthenticated, getUser } = getKindeServerSession();
+  const isLoggedIn = await isAuthenticated();
+  if (!isLoggedIn) {
+    redirect("/api/auth/login");
+  }
+
+  const user = await getUser();
+
+  const description = formData.get("description") as string;
+  const amount = formData.get("amount") as string;
+
+  await prisma.question.create({
+    data: {
+      description,
+      amount: parseFloat(amount),
+      userId: user.id,
+    },
+  });
+
+  revalidatePath("/dashboard");
+}
+
 export async function deleteQuestion(id: number) {
   const { isAuthenticated, getPermission } = getKindeServerSession();
   const isLoggedIn = await isAuthenticated();

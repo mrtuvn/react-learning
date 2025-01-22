@@ -15,3 +15,10 @@ model Question {
   text        String
   kindeAuthId String
 }
+
+model Expense {
+  id          Int    @id @default(autoincrement())
+  description String
+  amount Float
+  userId String
+}
