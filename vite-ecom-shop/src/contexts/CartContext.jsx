@@ -1,8 +1,13 @@
 import React from "react";
-import { calcPrice } from "../hooks/usePrice";
-const initialState = {
-  items: [], // Array to hold items in the cart
-  cost: 0,
+import { totalCost } from "../hooks/usePrice";
+
+const getInitialState = () => {
+  try {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : { items: [], totalCost: 0 };
+  } catch (error) {}
+  console.error("Error parsing cart from localStorage:", error);
+  return { items: [], cost: 0 };
 };
 
 export const CartContextProvider = React.createContext();
@@ -10,23 +15,24 @@ export const CartContextProvider = React.createContext();
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      const existingItemIndex = state.items.find(
+      const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       );
       let newItems;
-      if (existingItemIndex !== -1) {
-        newItems = state.items.map((item, index) =>
-          index === existingItemIndex
+      if (existingItem) {
+        newItems = state.items.map((item) =>
+          item.id === action.payload.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
         newItems = [...state.items, { ...action.payload, quantity: 1 }];
       }
+      console.log(newItems, state.items);
       return {
         ...state,
         items: newItems,
-        cost: calcPrice(newItems),
+        cost: totalCost(newItems),
       };
 
     case "REMOVE_ITEM":
@@ -36,7 +42,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         items: filteredItems,
-        cost: calcPrice(filteredItems),
+        cost: totalCost(filteredItems),
       };
 
     case "INCREASE_QUANTITY":
@@ -48,7 +54,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         items: increasedItems,
-        cost: calcPrice(increasedItems),
+        cost: totalCost(increasedItems),
       };
 
     case "DECREASE_QUANTITY":
@@ -60,12 +66,13 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         items: decreasedItems,
-        cost: calcPrice(decreasedItems),
+        cost: totalCost(decreasedItems),
       };
 
     case "CLEAR_CART":
       return {
-        ...initialState,
+        items: [],
+        cost: 0,
       };
 
     default:
@@ -75,27 +82,16 @@ const cartReducer = (state, action) => {
 
 const CartContext = ({ children }) => {
   // use reducer for init
-  const [cart, dispatch] = React.useReducer(cartReducer, initialState);
+  const [cart, dispatch] = React.useReducer(cartReducer, getInitialState());
+
+  React.useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const contextValue = {
     cart,
     dispatch,
   };
-
-  //   React.useEffect(() => {
-  //     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  //     if (savedCart.length > 0) {
-  //       savedCart.forEach((item) => {
-  //         dispatch({ type: "ADD_TO_CART", item });
-  //       });
-  //     }
-  //   }, []);
-
-  //   React.useEffect(() => {
-  //     if (cart.items.length > 0) {
-  //       localStorage.setItem("cart", JSON.stringify(cart.items));
-  //     }
-  //   }, [cart.items]);
 
   return (
     <CartContextProvider value={contextValue}>{children}</CartContextProvider>

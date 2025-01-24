@@ -5,7 +5,7 @@ import CartSidebar from "./CartSidebar";
 import ProductCartList from "./ProductCartList";
 const ProductCart = () => {
   return (
-    <div className="mainContent">
+    <div className="mainContent gap-4 flex flex-col">
       <div className="card">
         <div className="cardTop">
           <img

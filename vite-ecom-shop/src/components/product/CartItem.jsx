@@ -18,7 +18,7 @@ const CartItem = ({ item }) => {
   return (
     <div className="cardItem">
       <div className="cardItem_left">
-        <div className="cardItem_image">
+        <div className="cardItem_image" style={{ backgroundColor: item.color }}>
           <img alt="aef" src={item.image} />
         </div>
       </div>

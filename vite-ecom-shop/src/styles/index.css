@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer utilities {
+  .card {
+    @apply shadow-[0_30px_30px_0_rgba(0,0,0,0.2)] transition-all duration-[0.5s] ease-[ease] outline-amber-400;
+  }
+}

@@ -5,14 +5,13 @@ import { useCart } from "../../hooks/useCart";
 
 const CartSidebar = () => {
   const { cart, dispatch } = useCart();
-  //   let savedCart = [];
 
   const handleClearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
 
   return (
-    <div className="card">
+    <div className="card ">
       <div className="cardTop">
         <img
           alt=""
@@ -34,8 +33,11 @@ const CartSidebar = () => {
         {cart.items.length > 0 && (
           <div>
             Clear All:
-            <button className="button" onClick={() => handleClearCart}>
-              Clear Cart
+            <button
+              className="button bg-[#f6c90e] p-2 rounded-full mx-2 cursor-pointer uppercase"
+              onClick={() => handleClearCart}
+            >
+              Clear
             </button>
           </div>
         )}
