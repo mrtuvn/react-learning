@@ -17,6 +17,16 @@ const CartSidebar = () => {
           alt=""
           src="https://cdn-icons-png.flaticon.com/512/732/732084.png"
         />
+        {cart.items.length > 0 && (
+          <div>
+            <button
+              className="button bg-[#f6c90e] p-2 rounded-full mx-2 cursor-pointer uppercase"
+              onClick={() => handleClearCart()}
+            >
+              Clear Cart
+            </button>
+          </div>
+        )}
         <div>Total: {cart.items.length}</div>
       </div>
 
@@ -25,22 +35,10 @@ const CartSidebar = () => {
         <span className="card_amount">${cart.cost.toFixed(2)}</span>
       </div>
 
-      <div className="cardBody">
+      <div className="cardBody overflow-auto">
         {cart.items &&
           cart.items.map((item) => <CartItem key={item.id} item={item} />)}
         {cart.items.length === 0 && <CartEmpty />}
-
-        {cart.items.length > 0 && (
-          <div>
-            Clear All:
-            <button
-              className="button bg-[#f6c90e] p-2 rounded-full mx-2 cursor-pointer uppercase"
-              onClick={() => handleClearCart}
-            >
-              Clear
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
