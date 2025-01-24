@@ -1,10 +1,10 @@
 /**
  cartItems: [
   { price: 100, quatity: 1, ... },
-  { price: 100, quatity: 1, ... },
+  { price: 200, quatity: 1, ... },
  ]
 
- output: 200
+ output: 300 (total)
 */
 
 export const calculateItemTotal = (item) => {

@@ -6,7 +6,7 @@ const BaseLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="mainbody p-4">{children}</main>
+      <main className="mainbody p-4 min-h-min">{children}</main>
       <Footer />
     </>
   );
