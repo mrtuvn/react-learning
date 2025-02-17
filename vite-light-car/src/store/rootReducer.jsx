@@ -5,8 +5,8 @@ import authReducer from "../slices/auth/authSlice";
 import cartReducer from "../slices/cart/cartSlice";
 
 const rootReducer = combineReducers({
-  compare: compareReducer,
-  wishlist: wishlistReducer,
+  //compare: compareReducer,
+  //wishlist: wishlistReducer,
   auth: authReducer,
   cart: cartReducer,
 });
